@@ -1,22 +1,28 @@
-Welcome to Lumache's documentation!
+Welcome to the SWMF Quick Start Guide!
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+The Space Weather Modeling Framework (SWMF) is a multipurpose scientific tool
+for studying and predicting the space environment. It is a collection of models
+that are coupled in a framework style, allowing for mixing and matching different
+models to meet any individual user's needs.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+If you are new to the SWMF, start with :doc:`Setup` to learn how to set up your
+computer environment and install the SWMF. Then, check out :doc:`Geospace` to learn
+how to run the Geospace model. 
 
 .. note::
 
-   This project is under active development.
+   This Quick Start Guide is under active development.
 
 Contents
 --------
 
 .. toctree::
 
-   usage
-   api
+   Setup
+   Geospace
+   .. Solar
+   .. Planetary
+   .. Sun2Mud
+   .. usage
+   .. api
