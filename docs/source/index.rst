@@ -21,6 +21,7 @@ Contents
 
    setup
    geospace
+   geospace_extended
    troubleshooting
 
 ..

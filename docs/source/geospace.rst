@@ -33,94 +33,46 @@ can be done by running the following command:
 
 This will set up a run directory called run that should contain everything 
 needed to run whatever models are active, with the exception of run specific
-input files.
+input files. 
 
-.. _Changing IM Models:
+These run specific input files are a PARAM.in, and usually an IMF.dat. The 
+PARAM.in file is the primary file that tells the SWMF how to run. These will
+configure how the run is set up, including the use of processors, the time and
+duration of the run, the output files that will be generated, the domain and
+resolution of the simulation, and many other parameters. The IMF.dat file is
+used to specify the interplanetary magnetic field (IMF) conditions for the run.
+These files are often very large, containing many different parameters. As such,
+it is not recommended to write these files from scratch. Instead, it is 
+recommended to start with a baseline provided by the SWMF nightly test 
+configurations, and make edits as desired. For Geospace runs, these files can
+be found in SWMF/Param/SWPC. For the standard Geospace configuration, the file
+of choice is PARAM.in_SWPC_simple_init. 
 
-Changing Models
-----------------
+.. _MHD Equations:
 
-While BATSRUS and Ridley_serial are the only GM and IE components currently
-supported by the SWMF, there are several different IM components that can be 
-used. The currently supported IM components are RCM2, CIMI, HEIDI, and RAM-SCB.
-Something to keep in mind when running these models is that non-RCM models will
-usually need some additional data files not provided in their own git 
-repositories. These files are available in the SWMF_data repository. To clone
-this data and link it to the model that needs it, you can run the following 
-command:
-
-.. code-block:: console
-
-   $ git clone git@github.com:SWMFsoftware/SWMF_data.git
-   $ cd /path/to/SWMF/IM/Model
-   $ ln -s /path/to/SWMF_data/IM/Model/data
-
-For example, to link CIMI to its data, assuming you have the SWMF installed in 
-your home (~) directory, you would run the following commands:
-
-.. code-block:: console
-
-   $ cd ~
-   $ git clone git@github.com:SWMFsoftware/SWMF_data.git
-   $ cd SWMF/IM/CIMI
-   $ ln -s ~/SWMF_data/IM/CIMI/data
-
-If this linking is done correctly, whenever a run directory is set up for a
-model that requires these extra files, these files will automatically be put
-where they are needed for running the model. 
-
-.. note:: 
-    These files will be put into any new run directory, but they will not be
-    automatically copied into current run directories. If you have an existing 
-    run directory that is not working due to missing these data files, you 
-    will need to manually copy them into the run directory IM folder.
-
-.. _Particle Tracking:
-
-Particle Tracking 
-------------------
-
-.. note::
-    This section is under active development. 
-    
-.. _Plasmasphere:
-
-Plasmasphere
-------------
-
-.. note::
-    This section is under active development. 
-
-.. _Embedded Particle In Cell:
-
-Embedded Particle In Cell
--------------------------
+MHD Equations
+-------------
 
 .. note::
     This section is under active development.
 
-.. _Upper Atmosphere:
-
-Upper Atmosphere
-----------------
+.. _IE Grid Changing:
 
 .. note::
     This section is under active development.
 
-.. _Polar Wind:
+.. _Virtual Magnetometers:
 
-Polar Wind
-----------
-
-.. note::
-    This section is under active development.
-
-.. _Radiation Belt:
-
-Radiation Belt
---------------
+Virtual Magnetometers
+---------------------
 
 .. note::
     This section is under active development.
 
+.. _Satellite Extraction:
 
+Satellite Extraction
+--------------------
+
+.. note::
+    This section is under active development.
