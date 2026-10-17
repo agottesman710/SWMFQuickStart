@@ -22,10 +22,10 @@ Contents
    setup
    geospace
    troubleshooting
+
 ..
    Future sections to add to the toctree above:
    solar
    planetary
    sun2mud
-   troubleshooting
 

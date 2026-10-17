@@ -27,6 +27,7 @@ in this guide.
 In order to run the SWMF, you will need both a fortran and C compiler installed
 on your computer. Exactly what compilers are supported is slightly operating
 system dependent, but in general, the following compilers are supported:
+
 - GNU Fortran/C (gfortran, gcc)
 - Intel Fortran/C (ifx, ifort, icc, icx)
 - Nagfor
