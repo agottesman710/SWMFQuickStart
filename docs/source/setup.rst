@@ -104,7 +104,33 @@ following command:
 
    $ ./Config.pl -install=BATSRUS,Ridley_serial,RCM2
 
-m
+.. _Updating the SWMF:
+
+Updating the SWMF
+-----------------
+
+The SWMF is under constant development. Nightly testing is done to ensure that 
+each model continues working correctly. The current status of these tests can
+be seen at https://herot.engin.umich.edu/SWMFTESTS/. To update every model in 
+the SWMF, you can use the gitall command. This command will perform any git 
+commands given to it for every SWMF model. For example, to update every model 
+in the SWMF, you can run the following command:
+
+.. code-block:: console
+
+   $ share/Scripts/gitall pull
+
+Remember that this only updates the code for the models. To actually update
+the SWMF executable used to run the model, you will need to recompile the SWMF 
+using the make command. Normally when updating, only files that have changed 
+and all their dependencies will be recompiled. It can occassionally be a good 
+idea to do a  full recompile of the SWMF to ensure that everything is up to 
+date. This can be done by running the following command:
+
+.. code-block:: console
+
+   $ make clean
+   $ make -j
 
 
 
