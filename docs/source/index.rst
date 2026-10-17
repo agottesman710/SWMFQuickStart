@@ -22,6 +22,7 @@ Contents
    setup
    geospace
    geospace_extended
+   hpc
    troubleshooting
 
 ..

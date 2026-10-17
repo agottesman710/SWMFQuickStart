@@ -1,6 +1,9 @@
 Geospace
 ========
 
+Running the Geospace Model
+--------------------------
+
 The standard Geospace model is a combination of the BATSRUS, Ridley_serial, 
 and RCM models. To configure the SWMF to run the Geospace model, use the 
 Config.pl script with the -v flag to specify which models to use. The 
@@ -24,11 +27,13 @@ be used to compile in paralle, which significantly speeds up the compilation.
 
    $ make -j
 
-In addition to compiling the SWMF, you will need to set up a run directory. This
-can be done by running the following command:
+In addition to compiling the SWMF, you will need to set up a run directory, and
+compile the postprocessing script. This can be done by running the following 
+commands:
 
 .. code-block:: console
 
+   $ make PIDL 
    $ make rundir
 
 This will set up a run directory called run that should contain everything 
@@ -47,6 +52,61 @@ recommended to start with a baseline provided by the SWMF nightly test
 configurations, and make edits as desired. For Geospace runs, these files can
 be found in SWMF/Param/SWPC. For the standard Geospace configuration, the file
 of choice is PARAM.in_SWPC_simple_init. 
+
+Once your run directory is set up, run the SWMF in its simplest form by running 
+the following command from within the run directory:
+
+.. code-block:: console
+
+   $ ./SWMF.exe
+
+This however will only run the simulation on a single processor. To run the 
+simulation in parallel, you will need to use the mpirun or mpiexec command. 
+To run on N processors, you can run the following command:
+
+.. code-block:: console
+
+   $ mpirun -np N ./SWMF.exe
+
+While this runs, it will output information to the console, including the 
+PARAM options used, number of time steps completed, simulation time, cross polar
+cap potential, and files being saved. It is recommended to save this information
+to a log file for later reference. To do this, you can run the following 
+command:
+
+.. code-block:: console
+
+   $ mpirun -np N ./SWMF.exe > runlog
+
+Or, to output to both your console and a log file, you can run the following 
+command:
+
+.. code-block:: console
+
+   $ mpirun -np N ./SWMF.exe | tee runlog
+
+After a Geospace Run
+----------------------
+
+Once a geospace run has completed, it will usually be required to do 
+postprocessing. This is necessary as the parallel processing of the simulation
+usually requires the generation of multiple files for each time saved that are 
+combined into a single file for analysis. The postprocessing script is also
+parallelized. In addition, it has some other flags that can be given to do 
+additional work. Some examples include: -g will zip output IE files, -M will
+concatenate all the output GM .out files into .outs files by type, -n=N will
+run the postprocessing script on N processors, and -h will print out a list of
+all the flags that can be used. The first unflagged argument given to the 
+postprocessing script is taken as the output directory. For example, the 
+following command will run the postprocessing script on 4 processors, zip the
+IE output files, and concatenate the GM output files into .outs files, with all
+the GM, IE, and IM output, along with the runlog and a copy of the PARAM.in 
+files being put into a directory called MyFirstRun:
+
+.. code-block:: console
+
+   $ ./PostProc.pl -n=4 -g -M MyFirstRun
+
 
 .. _Compile Time Options:
 
