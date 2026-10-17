@@ -48,23 +48,33 @@ configurations, and make edits as desired. For Geospace runs, these files can
 be found in SWMF/Param/SWPC. For the standard Geospace configuration, the file
 of choice is PARAM.in_SWPC_simple_init. 
 
-.. _MHD Equations:
+.. _Compile Time Options:
+
+Compile Time Options
+--------------------
 
 MHD Equations
--------------
+~~~~~~~~~~~~~~~
 
 .. note::
     This section is under active development.
 
 .. _IE Grid Changing:
 
+IE Grid Changing
+~~~~~~~~~~~~~~~
+
 .. note::
     This section is under active development.
+
+Outputs
+-----------------
 
 .. _Virtual Magnetometers:
 
 Virtual Magnetometers
----------------------
+~~~~~~~~~~~~~~~
+
 
 .. note::
     This section is under active development.
@@ -72,7 +82,7 @@ Virtual Magnetometers
 .. _Satellite Extraction:
 
 Satellite Extraction
---------------------
+~~~~~~~~~~~~~~~
 
 .. note::
     This section is under active development.
