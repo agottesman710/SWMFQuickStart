@@ -24,5 +24,5 @@ Contents
    .. Solar
    .. Planetary
    .. Sun2Mud
-   .. usage
-   .. api
+   Troubleshooting
+
